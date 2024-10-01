@@ -4,9 +4,10 @@ import { SpinnerDotted } from 'spinners-react';
 import { toast } from 'react-toastify';
 import { db } from '../../../firebase/config';
 
-const Rooms = () => {
+const ViewRooms = () => {
   const [rooms, setRooms] = useState([]);
   const [loading, setLoading] = useState(false);
+    
 
   useEffect(() => {
     getRooms()
@@ -37,6 +38,7 @@ const Rooms = () => {
     }
   };
 
+  
   return (
     <>
     {loading && (
@@ -145,4 +147,4 @@ const Rooms = () => {
   );
 };
 
-export default Rooms;
+export default ViewRooms;

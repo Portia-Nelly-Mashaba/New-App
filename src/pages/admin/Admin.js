@@ -2,11 +2,10 @@ import React from 'react';
 import Navbar from '../../components/admin/navbar.js/Navbar';
 import { Route, Routes } from 'react-router-dom';
 import Dashboard from '../../components/admin/home/Dashboard';
-import Rooms from '../../components/admin/viewRooms/Rooms';
+import Rooms from '../../components/admin/rooms/Rooms';
 import SingleRoom from '../../components/admin/viewRooms/SingleRoom';
 import AddRoom from '../../components/admin/rooms/AddRoom';
-import Booking from '../../components/admin/bookings/Booking';
-import ViewUsers from '../../components/admin/users/ViewUsers';
+
 
 
 
@@ -23,7 +22,8 @@ const Admin = () => {
         <Route path='single-room' element={<SingleRoom />}/>
         <Route path='add-room' element={<AddRoom />}/>
         <Route path='bookings' element={<Booking />}/>
-        <Route path='users' element={<ViewUsers />}/>
+        <Route path='bookings' element={<Booking />}/>
+        {/* <Route path='users' element={<View />}/> */}
       </Routes>
     </div>
   

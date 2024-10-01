@@ -101,7 +101,7 @@ const logoutUser = () => {
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
                 <a href="/admin/dashboard" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" >Dashboard</a>
-                <a href="/admin/add-room" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Rooms</a>
+                <a href="/admin/rooms" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Rooms</a>
                 <a href="/admin/bookings" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Bookings</a>
                 <a href="/admin/users" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Users</a>
               </div>

@@ -6,10 +6,19 @@ import { db, storage } from '../../../firebase/config';
 import { deleteObject, ref } from 'firebase/storage';
 import Notiflix from 'notiflix';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { STORE_ROOMS } from '../../../redux/slice/roomSlice';
+import Modal from '../rooms/Modal';
+
+
+
 
 const SingleRoom = () => {
   const [rooms, setRooms] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     getRooms()
@@ -29,11 +38,17 @@ const SingleRoom = () => {
           id: doc.id,
           ...doc.data()
         }));
+        // 
         console.log(allRooms);
         setRooms(allRooms);
         setLoading(false)
+        dispatch(
+          STORE_ROOMS({
+            rooms: allRooms,
+          }));
       });
 
+      
     } catch (error) {
       setLoading(false)
       toast.error(error.message)
@@ -74,6 +89,11 @@ const SingleRoom = () => {
       toast.error(error.message)
     }
   };
+
+  const toggleModal = () => {
+    setIsModalOpen((prev) => !prev);
+  };
+
 
   return (
     <>
@@ -204,6 +224,7 @@ const SingleRoom = () => {
                                 viewBox="0 0 18 18"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
+                                onClick={toggleModal}
                               >
                                 
                                 <path
@@ -213,6 +234,8 @@ const SingleRoom = () => {
 
                               </svg>
                             </button>
+
+                            <Modal isOpen={isModalOpen} onClose={toggleModal} />
                           </div>
                         </td>
                       </tr>
